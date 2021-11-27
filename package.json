@@ -28,6 +28,6 @@
     "dependencies": {
         "style-loader": "^2.0.0",
         "three": "^0.125.2",
-        "webpack-dev-server": "^3.11.2"
+        "webpack-dev-server": "^4.6.0"
     }
 }
