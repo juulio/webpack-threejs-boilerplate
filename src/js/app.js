@@ -16,7 +16,7 @@ import Module from './modules/module'
 
 // THREEjs basic Scene stuff
 const scene = new THREE.Scene();
-let camera, renderer, controls;
+let camera, renderer, controls, importedModule;
 let isMobile;
 
 /**
@@ -42,7 +42,7 @@ let init = () => {
 		FAR = 20000;
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
 	scene.add(camera);
-	camera.position.set(0, 18, 50);
+	camera.position.set(0, 1, 2);
 	// camera.lookAt(scene.position);
 	
 	const light = new THREE.DirectionalLight(0xFFFFFF, 1);
@@ -53,13 +53,13 @@ let init = () => {
     renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.setClearColor ( "#000000");
     document.body.appendChild( renderer.domElement );
-    // controls = new OrbitControls( camera, renderer.domElement );
+    controls = new OrbitControls( camera, renderer.domElement );
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	// scene.add( new THREE.AxesHelper( 500 ));
 	// scene.add( new THREE.GridHelper( 30, 10 ));
-	
-	// scene.add(renderSkybox());
+	importedModule = new Module(0, 0, 0, scene);
+
     animate();
 }
 
@@ -69,7 +69,9 @@ let init = () => {
 let animate = () => {
  
     requestAnimationFrame( animate );
-	// controls.update();
+	controls.update();
+	
+	importedModule.rotateObject();
 
     renderer.render( scene, camera );
 }
