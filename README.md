@@ -1,6 +1,5 @@
 # Webpack + THREEjs boilerplate
 
-
 1. Make sure you have npm and Node.js installed on your local machine.  
 To install Node and NPM go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/)  
 To check your current version, on a terminal type:  
