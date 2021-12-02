@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const path = require('path');
 
@@ -43,10 +42,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "webpack + THREEjs boilerplate",
+      favicon: "./src/public/images/favicon.png"
     }),
     new CnameWebpackPlugin({
       domain: 'juliodelvalle.com', // modify this line
-    }),
-    new FaviconsWebpackPlugin('./src/public/images/favicon.png')
+    })
   ],
 };
